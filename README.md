@@ -1,6 +1,14 @@
 # ICRA-40-Dataset
 For the details please refer to https://staff.fnwi.uva.nl/a.visser/publications/zhang2024frodobots.pdf.
 ## Ways of handling the dataset
+### Image Data Generation
+The frequency of images on the server side is too low and we do not have access to the server. We use the optical flow difference method to difference between frames to get a higher FPS result.
+We use https://github.com/nihui/rife-ncnn-vulkan.
+The FPS would be double
+Code
+```bash
+./rife-ncnn-vulkan -i /media/zhangqi/DA18EBFA09C1B27D/Datasets/Dataset1/rgb/front_blur -o ./ori/
+```
 ### Data Collection
 We use the save_dataset_show.py script to collect data. The script uses asynchronous multithreading for processing, and has a higher frequency of accelerometers than other data sets recorded by Frodobots. In the case of the images, since we don't have access to the robot server, we only get a frequency of 3 Hz. The other frequencies are consistent with the other datasets recorded by Frodobots.
 ### Face Blur
@@ -8,9 +16,9 @@ We use the Yunet(https://github.com/opencv/opencv_zoo/tree/main/models/face_dete
 ### Depth Prediction
 We use the SOTA real-time Monodepth estimator-LiteMono to predict the depth from the monocular camera. We have 3 different types of depth file, the npy file, the depth image and the hotmap image.
 We run the following code to do the depth prediction.
-""bash
+```bash
 python pic_depth_prediction.py     --input_folder /media/zhangqi/DA18EBFA09C1B27D/Datasets/Dataset1/rgb/rear     --output_folder /media/zhangqi/DA18EBFA09C1B27D/Datasets/Dataset1/rgb/rear_depth     --load_weights_folder /home/zhangqi/Documents/Library/Lite-Mono/pretrained_model     --model lite-mono-8m
-""
+```
 ## How To Download The Dataset
 We store our dataset in the Uva server
 https://uvaauas.figshare.com/articles/dataset/frodobot_recording_2024_Sep_25_19_14_19_59_zip/27127125?file=49473699
