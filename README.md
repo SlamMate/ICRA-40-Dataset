@@ -2,9 +2,10 @@
 For the details please refer to https://staff.fnwi.uva.nl/a.visser/publications/zhang2024frodobots.pdf.
 ## Ways of handling the dataset
 ### Image Data Generation
-The frequency of images on the server side is too low and we do not have access to the server. We use the optical flow difference method to difference between frames to get a higher FPS result.
+The frequency of images on the server side is too low and we do not have access to the server. We use the optical flow method to interpolate between frames to get a higher FPS result.
 We use https://github.com/nihui/rife-ncnn-vulkan.
-The FPS would be double
+The FPS would be double.
+
 Code
 ```bash
 ./rife-ncnn-vulkan -i /media/zhangqi/DA18EBFA09C1B27D/Datasets/Dataset1/rgb/front_blur -o ./ori/
