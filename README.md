@@ -1,5 +1,9 @@
 # ICRA-40-Dataset
 For the details please refer to https://staff.fnwi.uva.nl/a.visser/publications/zhang2024frodobots.pdf.
+
+DataURL:
+https://doi.org/10.21942/uva.27130089
+
 ## Ways of handling the dataset
 ### Image Data Generation
 The frequency of images on the server side is too low and we do not have access to the server. We use the optical flow method to interpolate between frames to get a higher FPS result.
